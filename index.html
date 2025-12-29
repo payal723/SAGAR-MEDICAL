@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Sagar Medical Store - Dhar's Trusted Pharmacy</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas-bg"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-medical">⚕️</span>
+                <div class="logo-text">
+                    <span class="logo-main">Shree Sagar</span>
+                    <span class="logo-sub">Medical Store</span>
+                </div>
+            </div>
+            <div class="nav-info">
+                <span class="timing">⏰ 7:00 AM - 10:00 PM</span>
+                <span class="location">📍 Indira Colony, Dhar</span>
+            </div>
+            <div class="nav-contact">
+                <a href="tel:7999795995" class="phone">📞 7999795995</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="experience-badge">
+                    <span class="exp-number">5+</span>
+                    <span class="exp-text">Years Serving Dhar</span>
+                </div>
+                <h1 class="hero-title">
+                    Your Trusted Local
+                    <span class="highlight">Medical Store</span>
+                    in Dhar
+                </h1>
+                <p class="hero-description">
+                    Quality medicines, expert advice, and personalized care. 
+                    Visit our shop at Mohan Cinema, Indira Colony for all your healthcare needs.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">💊</span>
+                        <span>Authentic Medicines</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👨‍⚕️</span>
+                        <span>Expert Guidance</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <span>Fair Prices</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🕐</span>
+                        <span>7AM - 10PM Daily</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="tel:7999795995" class="btn-primary">
+                        <span>📞 Call Now - 7999795995</span>
+                    </a>
+                    <div class="btn-secondary">
+                        <span>📍 Visit Our Shop</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="store-card">
+                    <div class="card-header">
+                        <span class="card-icon">🏪</span>
+                        <span>Local Medical Store</span>
+                    </div>
+                    <div class="store-info">
+                        <div class="info-row">
+                            <span class="info-label">Location:</span>
+                            <span class="info-value">Mohan Cinema, Indira Colony</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Timing:</span>
+                            <span class="info-value">7:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Contact:</span>
+                            <span class="info-value">7999795995</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Owner:</span>
+                            <span class="info-value">Aman Jat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-description">
+                    Everything you need for your health, available at our local store
+                </p>
+            </div>
+            
+            <!-- <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💊</div>
+                    <h3>Prescription Medicines</h3>
+                    <p>All prescription drugs available with proper verification and guidance</p>
+                </div> -->
+                <div class="service-card">
+                    <div class="service-icon">🩹</div>
+                    <h3>Over-the-Counter</h3>
+                    <p>Common medicines for fever, cold, pain relief and general health</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💉</div>
+                    <h3>Medical Supplies</h3>
+                    <p>Blood pressure monitors, thermometers, first aid supplies</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌿</div>
+                    <h3>Ayurvedic Products</h3>
+                    <p>Traditional and herbal medicines for holistic wellness</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💊</div>
+                    <h3>Vitamins & Supplements</h3>
+                    <p>Health supplements, multivitamins, and nutritional products</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧴</div>
+                    <h3>Personal Care</h3>
+                    <p>Sanitizers, soaps, skincare and hygiene products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Shree Sagar Medical Store</h2>
+                    <p class="about-description">
+                        Serving the Dhar community for over 5 years, Shree Sagar Medical Store has become 
+                        a trusted name for quality medicines and healthcare products. Located conveniently 
+                        at Mohan Cinema, Indira Colony, we're your neighborhood pharmacy.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>5+ Years in Dhar</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Quality Medicines Only</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Expert Pharmacist Advice</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Local Community Focus</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="experience-showcase">
+                        <div class="exp-circle">
+                            <span class="exp-years">5+</span>
+                            <span class="exp-label">Years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Visit Shree Sagar Medical Store</h2>
+                    <p class="contact-description">
+                        Come visit us at our shop for all your medical needs. We're here to help!
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Address</strong>
+                                <span>Mohan Cinema, Indira Colony, Dhar - 454001</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div>
+                                <strong>Opening Hours</strong>
+                                <span>7:00 AM - 10:00 PM (Daily)</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>Contact</strong>
+                                <span>+91 7999795995</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">👨‍💼</div>
+                            <div>
+                                <strong>Proprietor</strong>
+                                <span>Aman Jat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="contact-note">
+                        <strong>Note:</strong> We are a local shop - no home delivery service available.
+                        Please visit our store for all purchases.
+                    </div> -->
+                </div>
+                <div class="contact-visual">
+                    <div class="location-card">
+                        <div class="card-title">How to Reach Us</div>
+                        <div class="direction-item">
+                            <span class="step">1</span>
+                            <span>Come to Indira Colony</span>
+                        </div>
+                        <div class="direction-item">
+                            <span class="step">2</span>
+                            <span>Look for Mohan Cinema</span>
+                        </div>
+                        <div class="direction-item">
+                            <span class="step">3</span>
+                            <span>We're right there!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-medical">⚕️</span>
+                        <div class="logo-text">
+                            <span class="logo-main">Shree Sagar</span>
+                            <span class="logo-sub">Medical Store</span>
+                        </div>
+                    </div>
+                    <p>Dhar's trusted local pharmacy since 2019</p>
+                </div>
+                <div class="footer-details">
+                    <div class="footer-section">
+                        <h4>Location</h4>
+                        <p>Mohan Cinema, Indira Colony</p>
+                        <p>Dhar, Madhya Pradesh - 454001</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Hours</h4>
+                        <p>7:00 AM - 10:00 PM</p>
+                        <p>Open Daily</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p>Phone: 7999795995</p>
+                        <p>Owner: Aman Jat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Shree Sagar Medical Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
