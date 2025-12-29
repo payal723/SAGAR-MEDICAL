@@ -420,3 +420,118 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('resize', handleResize);
 });
+
+// Mobile-specific optimizations
+function initMobileOptimizations() {
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Reduce particle count for better performance
+        const particlesCount = 800; // Reduced from 2000
+        // Reinitialize particles with lower count
+        initMobileParticles();
+    }
+    
+    // Handle touch events
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    document.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 1) {
+            const touch = e.touches[0];
+            mouseX = (touch.clientX / window.innerWidth - 0.5) * 2;
+            mouseY = (touch.clientY / window.innerHeight - 0.5) * 2;
+        }
+    }, { passive: true });
+    
+    // Optimize animations for mobile
+    if (isMobile) {
+        // Reduce animation complexity
+        gsap.utils.toArray('.service-card').forEach((card) => {
+            card.style.willChange = 'transform';
+        });
+    }
+}
+
+// Mobile particle system
+function initMobileParticles() {
+    // Simplified particle system for mobile
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 800;
+    const positions = new Float32Array(particlesCount * 3);
+    const colors = new Float32Array(particlesCount * 3);
+
+    for (let i = 0; i < particlesCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 100;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 100;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 50;
+
+        const color = new THREE.Color();
+        color.setHex(Math.random() > 0.5 ? 0x10b981 : 0x06b6d4);
+        colors[i * 3] = color.r;
+        colors[i * 3 + 1] = color.g;
+        colors[i * 3 + 2] = color.b;
+    }
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.1,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.6
+    });
+
+    const mobileParticles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(mobileParticles);
+}
+
+// Mobile menu toggle (if needed)
+function initMobileMenu() {
+    const navContainer = document.querySelector('.nav-container');
+    const menuToggle = document.createElement('button');
+    menuToggle.className = 'mobile-menu-toggle';
+    menuToggle.innerHTML = '☰';
+    
+    menuToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('mobile-menu-open');
+    });
+    
+    // Add to DOM on mobile
+    if (window.innerWidth <= 768) {
+        navContainer.appendChild(menuToggle);
+    }
+}
+
+// Enhanced resize handler for mobile
+function handleMobileResize() {
+    const isMobile = window.innerWidth <= 768;
+    
+    // Adjust camera for mobile
+    if (isMobile) {
+        camera.position.z = 50; // Closer view on mobile
+        camera.fov = 85; // Wider field of view
+        camera.updateProjectionMatrix();
+    }
+    
+    // Reinitialize mobile optimizations
+    initMobileOptimizations();
+}
+
+// Initialize mobile features
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileOptimizations();
+    initMobileMenu();
+    
+    // Handle orientation change
+    window.addEventListener('orientationchange', () => {
+        setTimeout(handleMobileResize, 100);
+    });
+});
